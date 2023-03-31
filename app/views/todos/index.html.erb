@@ -1,6 +1,11 @@
 <div id="todos" class="container">
   <h1>My Toodoos</h1>
 
+  <ul>
+      <li><%= current_user.username %></li>
+      <li><%= link_to 'logout', '/logout', method: :get %></li>
+  </ul>
+
   <% if @todos.length == 0 %>
     <p>The toodoo list is empty</p>
   <% end %>
