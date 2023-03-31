@@ -1,0 +1,16 @@
+<div id="welcome" class="container">
+  <h1>toodoo</h1>
+
+  <h2>the best todo application</h2>
+
+  <ul>
+    <% if logged_in? %>
+      <li><%= current_user.username %></li>
+      <li><%= link_to 'my toodoos', '/todos', method: :get %></li>
+      <li><%= link_to 'logout', '/logout', method: :get %></li>
+    <% else %>
+      <li><%= link_to 'login', '/login', method: :get %></li>
+      <li><%= link_to 'sign up', '/users/new', method: :get %></li>
+    <% end %>
+  </ul>
+</div>
