@@ -1,12 +1,11 @@
-class SessionsController < ApplicationController
-  skip_before_action :authorized, only: [:login_page, :login, :welcome]
+# frozen_string_literal: true
 
-  def login_page
-  end
+class SessionsController < ApplicationController
+  skip_before_action :authorized, only: %i[login_page login welcome]
 
   def login
     @user = User.find_by(username: params[:username])
-    if @user && @user.authenticate(params[:password])
+    if @user&.authenticate(params[:password])
       session[:user_id] = @user.id
       redirect_to '/todos'
     else
@@ -17,11 +16,5 @@ class SessionsController < ApplicationController
   def logout
     session[:user_id] = nil
     redirect_to '/welcome'
-  end
-
-  def welcome
-  end
-
-  def page_requires_login
   end
 end

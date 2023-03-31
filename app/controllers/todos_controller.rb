@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TodosController < ApplicationController
   def index
     @todos = Todo.where(user_id: session[:user_id]).order(:completed, created_at: :desc)
@@ -7,7 +9,6 @@ class TodosController < ApplicationController
   def create
     @todo = Todo.new(todo_params)
     @todo.user = User.find(session[:user_id])
-
     @todo.save
 
     redirect_to :todos
