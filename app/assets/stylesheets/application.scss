@@ -160,6 +160,11 @@ main {
             &:checked ~ span {
                 text-decoration: line-through;
             }
+
+            &[type=submit] {
+                display: none;
+                margin: 0;
+            }
         }
 
         span {

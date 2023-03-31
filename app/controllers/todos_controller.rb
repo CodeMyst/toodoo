@@ -14,6 +14,10 @@ class TodosController < ApplicationController
     redirect_to :todos
   end
 
+  def get
+    render inline: "<turbo-frame id='8'>asdds</turbo-frame>"
+  end
+
   def destroy
     @todo = Todo.find(params[:id])
     @todo.destroy
@@ -26,7 +30,7 @@ class TodosController < ApplicationController
     @todo.completed = !@todo.completed
     @todo.save
 
-    redirect_to :todos
+    render partial: 'todos/todo', locals: { todo: @todo }
   end
 
   private
