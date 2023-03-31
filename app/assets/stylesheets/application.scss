@@ -11,6 +11,7 @@
     --subtext: #bac2de;
     --primary: #fab387;
     --accent: #eba0ac;
+    --red: #f38ba8;
     --font: 'Ubuntu', sans-serif;
 }
 
@@ -121,6 +122,11 @@ main {
 }
 
 #todos {
+    p {
+        margin-top: 0;
+        margin-bottom: 2rem;
+    }
+
     .todo {
         background-color: var(--surface0);
         width: 20rem;
@@ -129,15 +135,46 @@ main {
         border-radius: 0.3rem;
         border: 2px solid transparent;
 
+        label {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
         &.checked {
             border-color: var(--primary);
         }
 
         input {
             margin-right: 0.5rem;
+            margin-bottom: 0;
 
             &:checked ~ span {
                 text-decoration: line-through;
+            }
+        }
+
+        span {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+
+            a {
+                background-color: var(--surface0);
+                border: 2px solid var(--surface1);
+                border-radius: 0.3rem;
+                transition: 100ms ease-in-out border-color;
+                outline: none;
+                color: var(--red);
+                padding: 0.25rem;
+                cursor: pointer;
+                display: flex;
+
+                &:hover {
+                    border-color: var(--red);
+                }
             }
         }
     }
