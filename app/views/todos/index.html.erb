@@ -1,0 +1,17 @@
+<div id="todos" class="container">
+  <h1>My Toodoos</h1>
+
+  <% @todos.each do |todo| %>
+    <div class="todo <%= 'checked' if todo.completed %>">
+      <label>
+        <%= tag.input type: 'checkbox', checked: todo.completed %>
+        <span><%= todo.content %></span>
+      </label>
+    </div>
+  <% end %>
+
+  <%= form_for @todo do |f| %>
+    <%= f.text_field :content, placeholder: 'Toodoo...' %>
+    <%= f.submit 'Add' %>
+  <% end %>
+</div>

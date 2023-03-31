@@ -19,6 +19,14 @@
     color: var(--surface0);
 }
 
+* {
+    box-sizing: border-box;
+}
+
+input {
+    margin-right: 1rem;
+}
+
 body {
     background-color: var(--base);
     color: var(--text);
@@ -108,6 +116,48 @@ main {
 
         li {
             margin: 0 0.5rem;
+        }
+    }
+}
+
+#todos {
+    .todo {
+        background-color: var(--surface0);
+        width: 20rem;
+        padding: 0.5rem 1rem;
+        margin-bottom: 2rem;
+        border-radius: 0.3rem;
+        border: 2px solid transparent;
+
+        &.checked {
+            border-color: var(--primary);
+        }
+
+        input {
+            margin-right: 0.5rem;
+
+            &:checked ~ span {
+                text-decoration: line-through;
+            }
+        }
+    }
+
+    .new_todo {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 20rem;
+
+        input {
+            margin: 0;
+
+            &[type=text] {
+                width: 80%;
+            }
+
+            &[type=submit] {
+                margin-left: auto;
+            }
         }
     }
 }
